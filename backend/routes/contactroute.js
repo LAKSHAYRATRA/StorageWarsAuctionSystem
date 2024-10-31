@@ -10,6 +10,8 @@ const transporter = nodemailer.createTransport({
       user:process.env.EMAIL_USER, // Your email address
       pass:process.env.EMAIL_PASS, // Your email password or app-specific password
     },
+    secureConnection: false, // Set to false if you're having issues with secure connections
+    port: 465, //for ssl
 });  
 router.post('/contact', async (req, res) => {
     const { name, email, phone, subject, details, preferredContactMethod } = req.body;
